@@ -12,27 +12,51 @@
     <p id="response-output">Response Placeholder</p>
     <br />
     <button id="fetch-pokedex-btn">fetch pokedex</button>
+    <button id="fetch-kanto-btn">Fetch Kanto Pokedex</button>
+    <button id="fetch-hoenn-btn">Fetch Hoenn Pokedex</button>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const fetchBtn = document.getElementById('fetch-btn')
         const responseText = document.getElementById('response-output')
+        const fetchKantoBtn = document.getElementById('fetch-kanto-btn')
+        const fetchHoennBtn = document.getElementById('fetch-hoenn-btn')
+        // const fetchPokedexBtn = document.getElementById('fetch-pokedex-btn')
 
         fetchBtn.addEventListener('click', async () => {
           const response = await fetch(
             '/.netlify/functions/hello-world',
-          ).then((response) => response.json());
-          responseText.innerText = JSON.stringify(response);
+          ).then((response) => response.json())
+          responseText.innerText = JSON.stringify(response)
         })
 
-        const fetchPokedexBtn = document.getElementById('fetch-pokedex-btn');
+        // fetchPokedexBtn.addEventListener('click', async () => {
+        //   const response = await fetch(
+        //     '/.netlify/functions/pokedex',
+        //   ).then((response) => response.json())
 
-        fetchPokedexBtn.addEventListener('click', async () => {
-          const response = await fetch(
-            '/.netlify/functions/pokedex',
-          ).then((response) => response.json());
+        //   responseText.innerText = JSON.stringify(response)
+        // })
 
-          responseText.innerText = JSON.stringify(response);
+        fetchKantoBtn.addEventListener('click', async () => {
+          const response = await fetch('/.netlify/functions/pokedex', {
+            method: 'POST',
+            body: JSON.stringify({
+              region: 'kanto',
+            }),
+          }).then((response) => response.json())
+
+          responseText.innerText = JSON.stringify(response)
+        })
+        fetchHoennBtn.addEventListener('click', async () => {
+          const response = await fetch('/.netlify/functions/pokedex', {
+            method: 'POST',
+            body: JSON.stringify({
+              region: 'hoenn',
+            }),
+          }).then((response) => response.json())
+
+          responseText.innerText = JSON.stringify(response)
         })
       })
     </script>
