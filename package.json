@@ -1,0 +1,24 @@
+{
+  "name": "netlify-serverless-template",
+  "version": "1.0.0",
+  "description": "Learn how to use serverless functions in less than 30 minutes!",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phryszlo/netlify-serverless-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phryszlo/netlify-serverless-template/issues"
+  },
+  "homepage": "https://github.com/phryszlo/netlify-serverless-template#readme",
+  "devDependencies": {
+    "node-fetch": "^3.2.10"
+  }
+}
